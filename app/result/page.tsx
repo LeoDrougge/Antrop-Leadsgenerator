@@ -397,8 +397,9 @@ export default function Result() {
 
           <FramedBlock
             data-section="understanding"
+            leftWidth="w-[100px] md:w-[120px]"
             left={<Image src="/Assets/smiley.svg" alt="Smile" width={44} height={44} />}
-            className="flex-col gap-6 md:flex-row md:gap-0 opacity-0"
+            className="flex-col gap-0 md:flex-row md:gap-0 opacity-0"
           >
             <div className="space-y-2">
               <p className="text-antrop-regular" style={{ color: 'var(--text-muted)' }}>
@@ -422,13 +423,14 @@ export default function Result() {
               <FramedBlock
                 key={idx}
                 hideBorderTop={idx > 0}
+                leftWidth="w-[80px] md:w-[120px]"
                 data-section="approach"
                 left={
                   <span className="header-antrop-lg" style={{ color: 'var(--text-regular)' }}>
                     {idx + 1}
                   </span>
                 }
-                className="flex-col gap-6 md:flex-row md:gap-0 opacity-0"
+                className="flex-col gap-0 md:flex-row md:gap-0 opacity-0"
               >
                 <div className="space-y-2">
                   <h4 className="header-sm" style={{ color: 'var(--text-regular)' }}>
@@ -468,9 +470,10 @@ export default function Result() {
                 >
                   <FramedBlock
                     hideBorderTop={idx > 0 && response.caseExamples.length > 1}
+                    leftWidth="w-[100px] md:w-[120px]"
                     data-section="case"
                     left={<Image src="/Assets/arrow-right.svg" alt="Pil" width={44} height={44} />}
-                    className="flex-col gap-6 md:flex-row md:gap-0 opacity-0"
+                    className="flex-col gap-0 md:flex-row md:gap-0 opacity-0"
                     background="transparent"
                   >
                     <div className="space-y-2">
@@ -497,8 +500,9 @@ export default function Result() {
           {/* Contact form */}
           <FramedBlock
             data-section="contact"
+            leftWidth="w-[100px] md:w-[120px]"
             left={<Image src="/Assets/mail.svg" alt="E-post" width={44} height={44} />}
-            className="flex-col gap-6 md:flex-row md:gap-0 opacity-0"
+            className="flex-col gap-0 md:flex-row md:gap-0 opacity-0"
           >
             <div className="space-y-4">
               <div className="space-y-2">
@@ -561,7 +565,7 @@ export default function Result() {
             left={
               <Image src="/Assets/sara.png" alt="Sara Nero" width={80} height={80} className="rounded-full" />
             }
-            className="flex-col gap-4 sm:flex-row sm:gap-0 opacity-0"
+            className="flex-col gap-0 sm:flex-row sm:gap-0 opacity-0"
           >
             <div className="space-y-2">
               <h4 className="header-sm" style={{ color: 'var(--text-regular)' }}>

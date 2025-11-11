@@ -8,6 +8,7 @@ interface FramedBlockProps {
   leftBackground?: string;
   'data-section'?: string;
   hideBorderTop?: boolean;
+  leftWidth?: string;
 }
 
 export function FramedBlock({
@@ -18,6 +19,7 @@ export function FramedBlock({
   className = '',
   'data-section': dataSection,
   hideBorderTop = false,
+  leftWidth = 'w-[120px]',
 }: FramedBlockProps) {
   return (
     <div 
@@ -97,7 +99,7 @@ export function FramedBlock({
       </svg>
 
       <div
-        className="flex w-[120px] flex-shrink-0 items-center justify-center pt-8 md:pt-0"
+        className={`flex ${leftWidth} flex-shrink-0 items-center justify-center pt-8 md:pt-0`}
         style={{ backgroundColor: leftBackground ?? background }}
       >
         {left}
