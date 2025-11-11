@@ -70,7 +70,7 @@ export default function Home() {
                 workplace
                   ? ''
                   : 'empty:before:content-[attr(data-placeholder)]'
-              } cursor-pen underline decoration-[var(--text-regular)] outline-none whitespace-nowrap inline-block`}
+              } cursor-pen underline decoration-[var(--text-regular)] outline-none sm:whitespace-nowrap inline-block`}
               style={{ 
                 color: workplace ? 'var(--text-regular)' : 'var(--text-muted)',
                 textDecorationSkipInk: 'none',
@@ -98,7 +98,7 @@ export default function Home() {
                 need
                   ? ''
                   : 'empty:before:content-[attr(data-placeholder)]'
-              } cursor-pen underline decoration-[var(--text-regular)] outline-none whitespace-nowrap inline-block`}
+              } cursor-pen underline decoration-[var(--text-regular)] outline-none sm:whitespace-nowrap inline-block`}
               style={{ 
                 color: need ? 'var(--text-regular)' : 'var(--text-muted)',
                 textDecorationSkipInk: 'none',
