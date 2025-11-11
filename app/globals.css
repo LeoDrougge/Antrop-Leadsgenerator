@@ -169,6 +169,21 @@
   text-transform: uppercase;
 }
 
+/* Mobile Typography - applies to entire app */
+@media (max-width: 640px) {
+  .header-antrop-lg {
+    font-size: 28px;
+  }
+  
+  .text-antrop-regular {
+    font-size: 14px;
+  }
+  
+  .header-sm {
+    font-size: 14px;
+  }
+}
+
 .svg-border {
   background-image: url('/Assets/div-Frame.svg');
   background-size: 100% 100%;

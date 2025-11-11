@@ -30,7 +30,7 @@ export default function Home() {
 
   return (
     <main 
-      className="min-h-screen flex flex-col gap-1 px-20 pb-16"
+      className="min-h-screen flex flex-col gap-1 px-4 sm:px-8 lg:px-20 pb-16"
       style={{ backgroundColor: 'var(--app_background)' }}
     >
       {/* Header */}
@@ -54,7 +54,7 @@ export default function Home() {
       </div>
 
       {/* Content */}
-      <div className="w-full max-w-[1268px] mx-auto mt-8 flex gap-6 items-start justify-between">
+      <div className="w-full max-w-[1268px] mx-auto mt-8 flex flex-col-reverse sm:flex-row gap-8 sm:gap-6 items-start justify-between">
         {/* Left Column */}
         <div className="flex flex-col gap-12 flex-1">
           {/* Text */}
@@ -121,7 +121,7 @@ export default function Home() {
           <button
             onClick={handleSubmit}
             disabled={!workplace || !need}
-            className="header-sm flex items-center justify-center gap-7 px-12 py-4 rounded-full min-w-[308px] w-fit transition-opacity disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed"
+            className="header-sm flex items-center justify-center gap-7 px-12 py-4 rounded-full w-full sm:w-fit sm:min-w-[308px] transition-opacity disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed"
             style={{ 
               backgroundColor: 'var(--text-regular)',
               color: 'var(--app_background)',
@@ -134,7 +134,7 @@ export default function Home() {
         </div>
 
         {/* Right Column - Image */}
-        <div className="flex items-center justify-center flex-shrink-0">
+        <div className="flex items-center justify-center flex-shrink-0 w-full sm:w-auto">
           <Image 
             src="/Assets/start-illu.png" 
             alt="Start illustration"
