@@ -583,10 +583,10 @@ export default function Result() {
           </FramedBlock>
         </section>
 
-        {/* Closing */}
+        {/* Disclaimer */}
         <div ref={closingRef} className="opacity-0">
           <p className="text-antrop-regular text-center italic" style={{ color: 'var(--text-muted)' }}>
-            {response.closing}
+            Innehållet genereras med stöd av AI och utgår från Antrops arbetssätt och insikter. Se det som inspiration och inte som rådgivning.
           </p>
         </div>
 
