@@ -49,7 +49,7 @@ export default function Loading() {
 
       // 2. Typewriter effect with SplitText
       if (textRef.current) {
-        const split = new SplitText(textRef.current, { type: 'chars', smartWrap: true });
+        const split = new SplitText(textRef.current, { type: 'chars' });
         const chars = split.chars;
 
         // Hide all chars initially

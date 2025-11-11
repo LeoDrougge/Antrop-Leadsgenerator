@@ -86,7 +86,6 @@ export default function ExempelMotion() {
         type: 'chars,lines',
         linesClass: 'split-line',
         reduceWhiteSpace: false,
-        smartWrap: true,
       });
 
       gsap.set(element, { opacity: 1 });

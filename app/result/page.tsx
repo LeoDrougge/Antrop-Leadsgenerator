@@ -74,7 +74,7 @@ export default function Result() {
 
     // Animate greeting with typewriter effect
     if (greetingRef.current) {
-      const split = new SplitText(greetingRef.current, { type: 'chars', smartWrap: true });
+      const split = new SplitText(greetingRef.current, { type: 'chars' });
       const chars = split.chars;
 
       chars.forEach((char, i) => {
