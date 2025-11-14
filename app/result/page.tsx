@@ -26,6 +26,7 @@ interface AIResponse {
     description: string;
   }[];
   closing: string;
+  hideContactForm?: boolean;
 }
 
 export default function Result() {
@@ -410,40 +411,42 @@ export default function Result() {
         </section>
 
         {/* Approach */}
-        <section className="space-y-6">
-          <h3 ref={approachHeaderRef} className="header-sm opacity-0" style={{ color: 'var(--text-regular)' }}>
-            Förslag på aktiviteter
-          </h3>
-          <p ref={approachDescRef} className="text-antrop-regular opacity-0" style={{ color: 'var(--text-muted)' }}>
-            Exakt hur vi tar oss an projektet beslutar vi tillsammans, men här är några förslag som brukar ge resultat.
-          </p>
+        {response.approach && response.approach.length > 0 && (
+          <section className="space-y-6">
+            <h3 ref={approachHeaderRef} className="header-sm opacity-0" style={{ color: 'var(--text-regular)' }}>
+              Förslag på aktiviteter
+            </h3>
+            <p ref={approachDescRef} className="text-antrop-regular opacity-0" style={{ color: 'var(--text-muted)' }}>
+              Exakt hur vi tar oss an projektet beslutar vi tillsammans, men här är några förslag som brukar ge resultat.
+            </p>
 
-          <div>
-            {response.approach.map((item, idx) => (
-              <FramedBlock
-                key={idx}
-                hideBorderTop={idx > 0}
-                leftWidth="w-[80px] md:w-[120px]"
-                data-section="approach"
-                left={
-                  <span className="header-antrop-lg" style={{ color: 'var(--text-regular)' }}>
-                    {idx + 1}
-                  </span>
-                }
-                className="flex-col gap-0 md:flex-row md:gap-0 opacity-0"
-              >
-                <div className="space-y-2">
-                  <h4 className="header-sm" style={{ color: 'var(--text-regular)' }}>
-                    {item.title}
-                  </h4>
-                  <p className="text-antrop-regular" style={{ color: 'var(--text-muted)' }}>
-                    {item.description}
-                  </p>
-                </div>
-              </FramedBlock>
-            ))}
-          </div>
-        </section>
+            <div>
+              {response.approach.map((item, idx) => (
+                <FramedBlock
+                  key={idx}
+                  hideBorderTop={idx > 0}
+                  leftWidth="w-[80px] md:w-[120px]"
+                  data-section="approach"
+                  left={
+                    <span className="header-antrop-lg" style={{ color: 'var(--text-regular)' }}>
+                      {idx + 1}
+                    </span>
+                  }
+                  className="flex-col gap-0 md:flex-row md:gap-0 opacity-0"
+                >
+                  <div className="space-y-2">
+                    <h4 className="header-sm" style={{ color: 'var(--text-regular)' }}>
+                      {item.title}
+                    </h4>
+                    <p className="text-antrop-regular" style={{ color: 'var(--text-muted)' }}>
+                      {item.description}
+                    </p>
+                  </div>
+                </FramedBlock>
+              ))}
+            </div>
+          </section>
+        )}
 
         {/* Case Examples */}
         {response.caseExamples && response.caseExamples.length > 0 && (
@@ -497,67 +500,69 @@ export default function Result() {
             Låt oss prata vidare!
           </h3>
 
-          {/* Contact form */}
-          <FramedBlock
-            data-section="contact"
-            leftWidth="w-[100px] md:w-[120px]"
-            left={<Image src="/Assets/mail.svg" alt="E-post" width={44} height={44} />}
-            className="flex-col gap-0 md:flex-row md:gap-0 opacity-0"
-          >
-            <div className="space-y-4">
-              <div className="space-y-2">
-                <h3 className="header-sm" style={{ color: 'var(--text-regular)' }}>
-                  Fyll i din epostadress så kontaktar vi dig inom kort
-                </h3>
-                <p className="text-antrop-regular" style={{ color: 'var(--text-muted)' }}>
-                  Vi diskuterar era utmaningar, målgrupper och affärsmål för att skräddarsy uppdraget efter era behov.
-                </p>
+          {/* Contact form - hidden for public sector procurement */}
+          {!response.hideContactForm && (
+            <FramedBlock
+              data-section="contact"
+              leftWidth="w-[100px] md:w-[120px]"
+              left={<Image src="/Assets/mail.svg" alt="E-post" width={44} height={44} />}
+              className="flex-col gap-0 md:flex-row md:gap-0 opacity-0"
+            >
+              <div className="space-y-4">
+                <div className="space-y-2">
+                  <h3 className="header-sm" style={{ color: 'var(--text-regular)' }}>
+                    Fyll i din epostadress så kontaktar vi dig inom kort
+                  </h3>
+                  <p className="text-antrop-regular" style={{ color: 'var(--text-muted)' }}>
+                    Vi diskuterar era utmaningar, målgrupper och affärsmål för att skräddarsy uppdraget efter era behov.
+                  </p>
+                </div>
+
+                <form className="flex flex-col gap-3 md:flex-row" onSubmit={(e) => { e.preventDefault(); handleContactSubmit(); }}>
+                  <label className="sr-only" htmlFor="contact-email">
+                    E-postadress
+                  </label>
+                  <input
+                    id="contact-email"
+                    type="email"
+                    value={contactEmail}
+                    onChange={(e) => setContactEmail(e.target.value)}
+                    placeholder="namn@epost.com"
+                    className="cursor-pen text-antrop-regular w-full bg-[var(--text-muted)] px-5 py-3 tracking-[-0.64px] outline-none border border-transparent hover:border-[var(--text-regular)]"
+                    style={{ color: 'var(--app_background)' }}
+                    onFocus={(event) => {
+                      event.target.style.backgroundColor = 'var(--text-regular)';
+                      event.target.style.color = 'var(--app_background)';
+                    }}
+                    onBlur={(event) => {
+                      event.target.style.backgroundColor = 'var(--text-muted)';
+                      event.target.style.color = 'var(--app_background)';
+                    }}
+                  />
+                  <button
+                    type="submit"
+                    className="header-sm flex items-center gap-3 whitespace-nowrap bg-transparent px-2 py-3 cursor-pointer disabled:cursor-not-allowed"
+                    style={{ color: 'var(--text-regular)' }}
+                    disabled={contactLoading}
+                  >
+                    {contactLoading ? 'Skickar…' : 'Skicka'}
+                    <Image src="/Assets/arrow-right.svg" alt="Skicka" width={29} height={23} />
+                  </button>
+                </form>
+
+                {contactSuccess && (
+                  <p className="text-antrop-regular" style={{ color: 'var(--text-regular)' }}>
+                    Tack! Vi hör av oss snart.
+                  </p>
+                )}
+                {contactError && (
+                  <p className="text-antrop-regular" style={{ color: 'var(--text-regular)' }}>
+                    {contactError}
+                  </p>
+                )}
               </div>
-
-              <form className="flex flex-col gap-3 md:flex-row" onSubmit={(e) => { e.preventDefault(); handleContactSubmit(); }}>
-                <label className="sr-only" htmlFor="contact-email">
-                  E-postadress
-                </label>
-                <input
-                  id="contact-email"
-                  type="email"
-                  value={contactEmail}
-                  onChange={(e) => setContactEmail(e.target.value)}
-                  placeholder="namn@epost.com"
-                  className="cursor-pen text-antrop-regular w-full bg-[var(--text-muted)] px-5 py-3 tracking-[-0.64px] outline-none border border-transparent hover:border-[var(--text-regular)]"
-                  style={{ color: 'var(--app_background)' }}
-                  onFocus={(event) => {
-                    event.target.style.backgroundColor = 'var(--text-regular)';
-                    event.target.style.color = 'var(--app_background)';
-                  }}
-                  onBlur={(event) => {
-                    event.target.style.backgroundColor = 'var(--text-muted)';
-                    event.target.style.color = 'var(--app_background)';
-                  }}
-                />
-                <button
-                  type="submit"
-                  className="header-sm flex items-center gap-3 whitespace-nowrap bg-transparent px-2 py-3 cursor-pointer disabled:cursor-not-allowed"
-                  style={{ color: 'var(--text-regular)' }}
-                  disabled={contactLoading}
-                >
-                  {contactLoading ? 'Skickar…' : 'Skicka'}
-                  <Image src="/Assets/arrow-right.svg" alt="Skicka" width={29} height={23} />
-                </button>
-              </form>
-
-              {contactSuccess && (
-                <p className="text-antrop-regular" style={{ color: 'var(--text-regular)' }}>
-                  Tack! Vi hör av oss snart.
-                </p>
-              )}
-              {contactError && (
-                <p className="text-antrop-regular" style={{ color: 'var(--text-regular)' }}>
-                  {contactError}
-                </p>
-              )}
-            </div>
-          </FramedBlock>
+            </FramedBlock>
+          )}
 
           {/* Sara Nero card */}
           <FramedBlock
