@@ -376,7 +376,7 @@ Returnera ENDAST valid JSON i exakt detta format:
       }
 
       // Return hardcoded response with AI-generated nextSteps and closing
-      return NextResponse.json({
+      const publicSectorResponse = {
         greeting: '>Det här är en fråga som bäst besvaras av en människa',
         understanding:
           'På Antrop har vi lång erfarenhet av att leverera rätt kompetenser inom våra ramavtal och skapa långsiktiga partnerskap. För frågor om våra befintliga ramavtal, inbjudningar till direktupphandlingar, samt frågor om hur du inom offentlig sektor kan upphandla vår kompetens, hör av dig till vår affärschef Sara Nero, sara.nero@antrop.se.',
@@ -385,7 +385,14 @@ Returnera ENDAST valid JSON i exakt detta format:
         nextSteps: parsedResponse.nextSteps || [],
         closing: parsedResponse.closing || 'Vi ser fram emot att höra från dig!',
         hideContactForm: true,
+      };
+
+      // Send Slack notification (fire-and-forget)
+      sendSlackNotification(workplace, need, publicSectorResponse).catch((error) => {
+        console.error('Failed to send Slack notification:', error);
       });
+
+      return NextResponse.json(publicSectorResponse);
     }
 
     const systemPrompt = `Du är en AI-assistent för designbyrån Antrop. Din uppgift är att hjälpa potentiella kunder förstå hur Antrop kan hjälpa dem.
@@ -475,6 +482,11 @@ INSTRUKTIONER:
       throw new Error('Invalid response format from AI');
     }
 
+    // Send Slack notification (fire-and-forget)
+    sendSlackNotification(workplace, need, parsedResponse).catch((error) => {
+      console.error('Failed to send Slack notification:', error);
+    });
+
     return NextResponse.json(parsedResponse);
   } catch (error) {
     const errorMessage = error instanceof Error ? error.message : 'Unknown error';
@@ -486,5 +498,36 @@ INSTRUKTIONER:
       },
       { status: 500 }
     );
+  }
+}
+
+/**
+ * Sends a Slack notification about the new lead (fire-and-forget)
+ */
+async function sendSlackNotification(
+  workplace: string,
+  need: string,
+  response: any
+): Promise<void> {
+  try {
+    const baseUrl = process.env.VERCEL_URL 
+      ? `https://${process.env.VERCEL_URL}`
+      : 'http://localhost:3000';
+
+    await fetch(`${baseUrl}/api/slack-notify`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        workplace,
+        need,
+        response,
+        timestamp: new Date().toISOString(),
+      }),
+    });
+  } catch (error) {
+    // Log but don't throw - this is fire-and-forget
+    console.error('Slack notification error:', error);
   }
 }
