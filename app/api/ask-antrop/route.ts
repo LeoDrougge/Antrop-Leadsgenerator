@@ -6,6 +6,16 @@ const anthropic = new Anthropic({
   apiKey: process.env.ANTHROPIC_API_KEY || '',
 });
 
+interface AIResponse {
+  greeting: string;
+  understanding: string;
+  approach: { title: string; description: string }[];
+  caseExamples: { name: string; description: string; url: string }[];
+  nextSteps: { title: string; description: string }[];
+  closing: string;
+  hideContactForm?: boolean;
+}
+
 // Swedish government agencies and organizations
 const GOVERNMENT_AGENCIES = [
   'affärsverket svenska kraftnät',
@@ -507,7 +517,7 @@ INSTRUKTIONER:
 async function sendSlackNotification(
   workplace: string,
   need: string,
-  response: any
+  response: AIResponse
 ): Promise<void> {
   try {
     const baseUrl = process.env.VERCEL_URL 
