@@ -285,6 +285,12 @@
 
     container.innerHTML = widgetHTML;
 
+    // Override container height to allow content-based sizing
+    container.style.setProperty('height', 'auto', 'important');
+    container.style.setProperty('min-height', 'auto', 'important');
+    container.style.setProperty('max-height', 'none', 'important');
+    container.style.setProperty('overflow', 'visible', 'important');
+
     // Get elements
     const workplaceInput = container.querySelector('.antrop-widget-input:first-of-type');
     const needInput = container.querySelector('.antrop-widget-input:last-of-type');
