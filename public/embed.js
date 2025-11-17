@@ -102,7 +102,6 @@
         <!-- Content -->
         <div class="antrop-widget-content" style="
           display: flex !important;
-          flex-direction: column-reverse !important;
           gap: 2rem !important;
           box-sizing: border-box !important;
           align-items: flex-start !important;
@@ -280,6 +279,10 @@
 
         .antrop-widget-input:focus::before {
           display: none !important;
+        }
+
+        .antrop-widget-content {
+          flex-direction: column-reverse !important;
         }
 
         @media (min-width: 640px) {
