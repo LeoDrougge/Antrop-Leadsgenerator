@@ -287,7 +287,7 @@
 
         @media (max-width: 639px) {
           .antrop-widget {
-            padding: 64px 16px !important;
+            padding: 16px !important;
           }
         }
 
