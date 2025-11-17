@@ -118,7 +118,7 @@
             <!-- Text -->
             <div class="antrop-widget-text" style="
               font-family: 'Martian Mono', monospace !important;
-              font-size: clamp(1.5rem, 4vw, 2.5rem) !important;
+              font-size: 39px !important;
               font-weight: 400 !important;
               line-height: 1.5 !important;
               color: #AFDDD9 !important;
@@ -288,6 +288,9 @@
         @media (max-width: 639px) {
           .antrop-widget {
             padding: 16px !important;
+          }
+          .antrop-widget-text {
+            font-size: 28px !important;
           }
         }
 
