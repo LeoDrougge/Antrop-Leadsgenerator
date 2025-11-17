@@ -117,20 +117,27 @@ export default function Home() {
             </span>
           </div>
 
-          {/* Button */}
-          <button
-            onClick={handleSubmit}
-            disabled={!workplace || !need}
-            className="header-sm flex items-center justify-center gap-7 px-12 py-4 rounded-full w-full sm:w-fit sm:min-w-[308px] transition-opacity disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed"
-            style={{ 
-              backgroundColor: 'var(--text-regular)',
-              color: 'var(--app_background)',
-              border: '1.283px solid #0f3951'
-            }}
-          >
-            <span>Se hur vi kan hjälpa dig</span>
-            <Image src="/Assets/arrow-free.svg" alt="Arrow" width={27} height={22} />
-          </button>
+          {/* Button and Disclaimer */}
+          <div className="flex flex-col gap-2">
+            <button
+              onClick={handleSubmit}
+              disabled={!workplace || !need}
+              className="header-sm flex items-center justify-center gap-7 px-12 py-4 rounded-full w-full sm:w-fit sm:min-w-[308px] transition-opacity disabled:opacity-50 cursor-pointer disabled:cursor-not-allowed"
+              style={{ 
+                backgroundColor: 'var(--text-regular)',
+                color: 'var(--app_background)',
+                border: '1.283px solid #0f3951'
+              }}
+            >
+              <span>Se hur vi kan hjälpa dig</span>
+              <Image src="/Assets/arrow-free.svg" alt="Arrow" width={27} height={22} />
+            </button>
+
+            {/* AI Disclaimer */}
+            <p className="text-antrop-regular" style={{ color: 'var(--text-muted)' }}>
+              Svaren skapas med hjälp av AI.
+            </p>
+          </div>
         </div>
 
         {/* Right Column - Image */}

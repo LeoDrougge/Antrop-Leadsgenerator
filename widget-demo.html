@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Antrop Widget Demo - WordPress Test</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      background: #001A1A;
+      color: #AFDDD9;
+      padding: 40px 20px;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .header {
+      text-align: center;
+      margin-bottom: 60px;
+      padding-bottom: 20px;
+      border-bottom: 1px dashed #064848;
+    }
+
+    .header h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: #AFDDD9;
+    }
+
+    .header p {
+      color: #6B8E8A;
+      font-size: 1rem;
+    }
+
+    .demo-content {
+      max-width: 800px;
+      margin: 0 auto 60px;
+    }
+
+    .demo-content h2 {
+      font-size: 1.75rem;
+      margin-bottom: 20px;
+      color: #AFDDD9;
+    }
+
+    .demo-content p {
+      font-size: 1.125rem;
+      color: #6B8E8A;
+      margin-bottom: 20px;
+    }
+
+    .widget-container {
+      background: rgba(0, 26, 26, 0.5);
+      border: 1px dashed #064848;
+      border-radius: 12px;
+      padding: 40px;
+      margin: 40px 0;
+    }
+
+    .instructions {
+      background: rgba(175, 221, 217, 0.1);
+      border: 1px solid #064848;
+      border-radius: 8px;
+      padding: 30px;
+      margin-top: 60px;
+    }
+
+    .instructions h3 {
+      font-size: 1.25rem;
+      margin-bottom: 15px;
+      color: #AFDDD9;
+    }
+
+    .instructions p {
+      color: #6B8E8A;
+      margin-bottom: 15px;
+    }
+
+    .instructions code {
+      display: block;
+      background: #001A1A;
+      border: 1px solid #064848;
+      border-radius: 4px;
+      padding: 15px;
+      color: #AFDDD9;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9rem;
+      overflow-x: auto;
+      margin-top: 10px;
+    }
+
+    @media (max-width: 768px) {
+      .header h1 {
+        font-size: 1.5rem;
+      }
+
+      .widget-container {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>🎨 Antrop Widget Demo</h1>
+      <p>Testa widgeten här innan du integrerar i WordPress</p>
+    </div>
+
+    <div class="demo-content">
+      <h2>Detta är en demo-sida</h2>
+      <p>
+        Här nedan ser du hur widgeten kommer se ut när den är inbäddad i WordPress.
+        Formuläret öppnar resultatet i en ny flik när du skickar.
+      </p>
+    </div>
+
+    <!-- Widget Container - Detta är vad som kommer inbäddas i WordPress -->
+    <div class="widget-container">
+      <div data-antrop-widget></div>
+    </div>
+
+    <div class="instructions">
+      <h3>📋 WordPress Integration</h3>
+      <p>
+        För att använda widgeten i WordPress, lägg in detta i en HTML-block eller custom HTML widget:
+      </p>
+      <code>&lt;div data-antrop-widget&gt;&lt;/div&gt;<br />
+&lt;script src="https://antrop-bot.vercel.app/embed.js"&gt;&lt;/script&gt;</code>
+      
+      <p style="margin-top: 20px;">
+        <strong>Notera:</strong> Widgeten kommer automatiskt anpassa sig till er WordPress-sidas styling.
+        Den använder inline-styles för att fungera oavsett tema.
+      </p>
+    </div>
+  </div>
+
+  <!-- Load widget script -->
+  <script src="/embed.js"></script>
+</body>
+</html>
+

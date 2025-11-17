@@ -245,14 +245,20 @@ export default function Loading() {
   useEffect(() => {
     // Make API call when component mounts
     const makeApiCall = async () => {
-      const workplace = localStorage.getItem('antropWorkplace');
-      const need = localStorage.getItem('antropNeed');
+      // Check URL params first (for widget), then localStorage (for regular flow)
+      const urlParams = new URLSearchParams(window.location.search);
+      const workplace = urlParams.get('workplace') || localStorage.getItem('antropWorkplace');
+      const need = urlParams.get('need') || localStorage.getItem('antropNeed');
 
       if (!workplace || !need) {
         // No data, redirect to home
         router.push('/');
         return;
       }
+
+      // Save to localStorage for result page
+      localStorage.setItem('antropWorkplace', workplace);
+      localStorage.setItem('antropNeed', need);
 
       try {
         const res = await fetch('/api/ask-antrop', {
