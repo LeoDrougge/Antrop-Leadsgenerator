@@ -17,7 +17,7 @@
 ```html
 <div style="width: 100%; margin: 0 auto;">
   <iframe
-    src="https://antrop-nextjs.vercel.app/"
+    src="https://antrop-leadsgenerator-4syq.vercel.app/"
     id="antrop-ai-hero"
     style="width: 100%; min-height: 800px; border: none; display: block;"
     title="Antrop AI Assistant"
@@ -28,7 +28,7 @@
 <script>
 // Auto-resize iframe baserat på innehåll
 window.addEventListener('message', function(event) {
-  if (event.origin === 'https://antrop-nextjs.vercel.app') {
+  if (event.origin === 'https://antrop-leadsgenerator-4syq.vercel.app') {
     var iframe = document.getElementById('antrop-ai-hero');
     if (iframe && event.data.height) {
       iframe.style.height = event.data.height + 'px';
@@ -55,7 +55,7 @@ function antrop_ai_hero_shortcode() {
     ?>
     <div style="width: 100%; margin: 0 auto;">
       <iframe
-        src="https://antrop-nextjs.vercel.app/"
+        src="https://antrop-leadsgenerator-4syq.vercel.app/"
         id="antrop-ai-hero"
         style="width: 100%; min-height: 800px; border: none; display: block;"
         title="Antrop AI Assistant"
@@ -65,7 +65,7 @@ function antrop_ai_hero_shortcode() {
 
     <script>
     window.addEventListener('message', function(event) {
-      if (event.origin === 'https://antrop-nextjs.vercel.app') {
+      if (event.origin === 'https://antrop-leadsgenerator-4syq.vercel.app') {
         var iframe = document.getElementById('antrop-ai-hero');
         if (iframe && event.data.height) {
           iframe.style.height = event.data.height + 'px';

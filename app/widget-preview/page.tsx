@@ -196,7 +196,7 @@ export default function WidgetPreview() {
             }}
           >
             {`<div data-antrop-widget></div>
-<script src="https://antrop-bot.vercel.app/embed.js"></script>`}
+<script src="https://antrop-leadsgenerator-4syq.vercel.app/embed.js"></script>`}
           </pre>
         </div>
       </div>
