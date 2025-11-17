@@ -118,7 +118,6 @@
             <!-- Text -->
             <div class="antrop-widget-text" style="
               font-family: 'Martian Mono', monospace !important;
-              font-size: 39px !important;
               font-weight: 400 !important;
               line-height: 1.5 !important;
               color: #AFDDD9 !important;
@@ -283,6 +282,10 @@
 
         .antrop-widget-content {
           flex-direction: column-reverse !important;
+        }
+
+        .antrop-widget-text {
+          font-size: 39px !important;
         }
 
         @media (max-width: 639px) {
