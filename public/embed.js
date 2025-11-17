@@ -102,7 +102,7 @@
         <!-- Content -->
         <div class="antrop-widget-content" style="
           display: flex !important;
-          flex-direction: column-reverse !important;
+          flex-direction: column !important;
           gap: 2rem !important;
           box-sizing: border-box !important;
           align-items: flex-start !important;
@@ -174,9 +174,7 @@
 
             <!-- Button and Disclaimer -->
             <div style="
-              display: flex !important;
-              flex-direction: column !important;
-              gap: 0.5rem !important;
+              display: block !important;
               box-sizing: border-box !important;
             ">
               <button
@@ -184,7 +182,7 @@
                 type="button"
                 style="
                   font-family: 'Martian Mono', monospace !important;
-                  font-size: 1rem !important;
+                  font-size: clamp(0.875rem, 2vw, 1rem) !important;
                   font-weight: 500 !important;
                   display: inline-flex !important;
                   align-items: center !important;
@@ -197,11 +195,10 @@
                   border: 1.283px solid #0f3951 !important;
                   cursor: pointer !important;
                   transition: opacity 0.2s !important;
-                  width: 100% !important;
                   text-transform: uppercase !important;
                   letter-spacing: -0.2px !important;
                   line-height: 150% !important;
-                  margin: 0 !important;
+                  margin: 0 0 0.5rem 0 !important;
                 "
                 onmouseover="this.style.opacity='0.9'"
                 onmouseout="this.style.opacity='1'"
