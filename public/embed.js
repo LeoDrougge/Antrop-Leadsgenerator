@@ -264,6 +264,10 @@
           font-family: 'Martian Mono', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, monospace !important;
           color: #AFDDD9 !important;
           background-color: #001A1A !important;
+          height: auto !important;
+          min-height: auto !important;
+          max-height: none !important;
+          overflow: visible !important;
         }
 
         @media (min-width: 640px) {
@@ -290,6 +294,27 @@
     container.style.setProperty('min-height', 'auto', 'important');
     container.style.setProperty('max-height', 'none', 'important');
     container.style.setProperty('overflow', 'visible', 'important');
+
+    // Get the widget element and ensure it has proper height
+    const widget = container.querySelector('.antrop-widget');
+    if (widget) {
+      widget.style.setProperty('height', 'auto', 'important');
+      widget.style.setProperty('min-height', 'auto', 'important');
+      widget.style.setProperty('max-height', 'none', 'important');
+      widget.style.setProperty('overflow', 'visible', 'important');
+    }
+
+    // Calculate and set minimum height based on content
+    // Use requestAnimationFrame to ensure DOM is fully rendered
+    requestAnimationFrame(() => {
+      if (widget) {
+        const scrollHeight = widget.scrollHeight;
+        if (scrollHeight > 0) {
+          widget.style.setProperty('min-height', scrollHeight + 'px', 'important');
+          container.style.setProperty('min-height', scrollHeight + 'px', 'important');
+        }
+      }
+    });
 
     // Get elements
     const workplaceInput = container.querySelector('.antrop-widget-input:first-of-type');
@@ -325,6 +350,7 @@
       input.addEventListener('input', function () {
         handlePlaceholder(this);
         updateButtonState();
+        updateWidgetHeight();
       });
 
       // Initial placeholder
@@ -333,6 +359,19 @@
         input.style.color = '#6B8E8A';
       }
     });
+
+    // Update widget height based on content
+    function updateWidgetHeight() {
+      if (widget) {
+        requestAnimationFrame(() => {
+          const scrollHeight = widget.scrollHeight;
+          if (scrollHeight > 0) {
+            widget.style.setProperty('min-height', scrollHeight + 'px', 'important');
+            container.style.setProperty('min-height', scrollHeight + 'px', 'important');
+          }
+        });
+      }
+    }
 
     // Update button state
     function updateButtonState() {
@@ -381,6 +420,13 @@
 
     // Initial button state
     updateButtonState();
+
+    // Update height on window resize (for responsive text wrapping)
+    let resizeTimeout;
+    window.addEventListener('resize', function() {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(updateWidgetHeight, 100);
+    });
   }
 })();
 
