@@ -326,8 +326,10 @@
       if (widget) {
         const scrollHeight = widget.scrollHeight;
         if (scrollHeight > 0) {
-          widget.style.setProperty('min-height', scrollHeight + 'px', 'important');
-          container.style.setProperty('min-height', scrollHeight + 'px', 'important');
+          // Use max of scrollHeight and 870px to ensure minimum height
+          const minHeight = Math.max(scrollHeight, 870);
+          widget.style.setProperty('min-height', minHeight + 'px', 'important');
+          container.style.setProperty('min-height', minHeight + 'px', 'important');
         }
       }
     });
@@ -385,8 +387,10 @@
         requestAnimationFrame(() => {
           const scrollHeight = widget.scrollHeight;
           if (scrollHeight > 0) {
-            widget.style.setProperty('min-height', scrollHeight + 'px', 'important');
-            container.style.setProperty('min-height', scrollHeight + 'px', 'important');
+            // Use max of scrollHeight and 870px to ensure minimum height
+            const minHeight = Math.max(scrollHeight, 870);
+            widget.style.setProperty('min-height', minHeight + 'px', 'important');
+            container.style.setProperty('min-height', minHeight + 'px', 'important');
           }
         });
       }
