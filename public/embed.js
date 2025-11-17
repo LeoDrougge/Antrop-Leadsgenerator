@@ -285,6 +285,12 @@
           flex-direction: column-reverse !important;
         }
 
+        @media (max-width: 639px) {
+          .antrop-widget {
+            padding: 64px 16px !important;
+          }
+        }
+
         @media (min-width: 640px) {
           .antrop-widget-content {
             flex-direction: row !important;
