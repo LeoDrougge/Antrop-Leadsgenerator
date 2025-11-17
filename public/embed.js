@@ -49,7 +49,7 @@
       <div class="antrop-widget" style="
         font-family: 'Martian Mono', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, monospace !important;
         color: #AFDDD9 !important;
-        background-color: #001A1A !important;
+        background-color: #003535 !important;
         box-sizing: border-box !important;
         margin: 0 !important;
         padding: 64px !important;
@@ -190,7 +190,7 @@
                   padding: 1rem 48px !important;
                   border-radius: 9999px !important;
                   background-color: #AFDDD9 !important;
-                  color: #001A1A !important;
+                  color: #003535 !important;
                   border: 1.283px solid #0f3951 !important;
                   cursor: pointer !important;
                   transition: opacity 0.2s !important;
@@ -259,7 +259,7 @@
           display: block !important;
           font-family: 'Martian Mono', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, monospace !important;
           color: #AFDDD9 !important;
-          background-color: #001A1A !important;
+          background-color: #003535 !important;
           height: auto !important;
           min-height: auto !important;
           max-height: none !important;
@@ -307,7 +307,7 @@
 
     // Override container height to allow content-based sizing
     container.style.setProperty('height', 'auto', 'important');
-    container.style.setProperty('min-height', '540px', 'important');
+    container.style.setProperty('min-height', '640px', 'important');
     container.style.setProperty('max-height', 'none', 'important');
     container.style.setProperty('overflow', 'visible', 'important');
 
@@ -326,8 +326,8 @@
       if (widget) {
         const scrollHeight = widget.scrollHeight;
         if (scrollHeight > 0) {
-          // Use max of scrollHeight and 540px to ensure minimum height
-          const minHeight = Math.max(scrollHeight, 540);
+          // Use max of scrollHeight and 640px to ensure minimum height
+          const minHeight = Math.max(scrollHeight, 640);
           widget.style.setProperty('min-height', minHeight + 'px', 'important');
           container.style.setProperty('min-height', minHeight + 'px', 'important');
         }
