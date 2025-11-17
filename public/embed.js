@@ -52,7 +52,6 @@
         background-color: #003535 !important;
         box-sizing: border-box !important;
         margin: 0 !important;
-        padding: 64px !important;
       ">
         <!-- Header -->
         <div class="antrop-widget-header" style="
@@ -264,6 +263,7 @@
           min-height: auto !important;
           max-height: none !important;
           overflow: visible !important;
+          padding: 64px !important;
         }
 
         .antrop-widget-image {
