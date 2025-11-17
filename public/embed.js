@@ -52,7 +52,7 @@
         background-color: #001A1A !important;
         box-sizing: border-box !important;
         margin: 0 !important;
-        padding: 0 !important;
+        padding: 64px !important;
       ">
         <!-- Header -->
         <div class="antrop-widget-header" style="
@@ -190,7 +190,7 @@
                   align-items: center !important;
                   justify-content: center !important;
                   gap: 1.75rem !important;
-                  padding: 1rem 3rem !important;
+                  padding: 1rem 48px !important;
                   border-radius: 9999px !important;
                   background-color: #AFDDD9 !important;
                   color: #001A1A !important;
@@ -198,7 +198,6 @@
                   cursor: pointer !important;
                   transition: opacity 0.2s !important;
                   width: 100% !important;
-                  max-width: 308px !important;
                   text-transform: uppercase !important;
                   letter-spacing: -0.2px !important;
                   line-height: 150% !important;
@@ -230,6 +229,7 @@
           <div class="antrop-widget-image" style="
             display: flex !important;
             align-items: center !important;
+            justify-content: center !important;
             flex-shrink: 0 !important;
             box-sizing: border-box !important;
           ">
@@ -297,7 +297,7 @@
           }
           .antrop-widget-image {
             width: auto !important;
-            justify-content: flex-start !important;
+            justify-content: center !important;
           }
         }
       </style>
@@ -307,7 +307,7 @@
 
     // Override container height to allow content-based sizing
     container.style.setProperty('height', 'auto', 'important');
-    container.style.setProperty('min-height', 'auto', 'important');
+    container.style.setProperty('min-height', '870px', 'important');
     container.style.setProperty('max-height', 'none', 'important');
     container.style.setProperty('overflow', 'visible', 'important');
 
