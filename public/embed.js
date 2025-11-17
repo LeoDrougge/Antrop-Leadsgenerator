@@ -307,7 +307,7 @@
 
     // Override container height to allow content-based sizing
     container.style.setProperty('height', 'auto', 'important');
-    container.style.setProperty('min-height', '870px', 'important');
+    container.style.setProperty('min-height', '540px', 'important');
     container.style.setProperty('max-height', 'none', 'important');
     container.style.setProperty('overflow', 'visible', 'important');
 
@@ -326,8 +326,8 @@
       if (widget) {
         const scrollHeight = widget.scrollHeight;
         if (scrollHeight > 0) {
-          // Use max of scrollHeight and 870px to ensure minimum height
-          const minHeight = Math.max(scrollHeight, 870);
+          // Use max of scrollHeight and 540px to ensure minimum height
+          const minHeight = Math.max(scrollHeight, 540);
           widget.style.setProperty('min-height', minHeight + 'px', 'important');
           container.style.setProperty('min-height', minHeight + 'px', 'important');
         }
