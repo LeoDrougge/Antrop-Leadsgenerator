@@ -147,7 +147,7 @@
                 onfocus="this.style.color='#AFDDD9'"
                 onblur="if(!this.textContent.trim()) this.style.color='#6B8E8A'"
               ></span>
-              <span style="white-space: nowrap !important;">OCH BEHÖVER HJÄLP MED</span>
+              <span class="antrop-widget-text-fixed">OCH BEHÖVER HJÄLP MED</span>
               <span
                 class="antrop-widget-input"
                 contenteditable="true"
@@ -300,12 +300,19 @@
           font-size: 34px !important;
         }
 
+        .antrop-widget-text-fixed {
+          white-space: nowrap !important;
+        }
+
         @media (max-width: 639px) {
           .antrop-widget {
             padding: 16px !important;
           }
           .antrop-widget-text {
             font-size: 28px !important;
+          }
+          .antrop-widget-text-fixed {
+            white-space: normal !important;
           }
         }
 
