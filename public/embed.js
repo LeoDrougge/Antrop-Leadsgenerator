@@ -271,7 +271,7 @@
           }
         }
 
-        @media (max-height: 624px) {
+        @media (max-width: 624px) {
           .antrop-widget {
             min-height: 820px !important;
           }
