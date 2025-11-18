@@ -197,8 +197,8 @@
                   line-height: 150% !important;
                   margin: 0 0 0.5rem 0 !important;
                 "
-                onmouseover="this.style.opacity='0.9'"
-                onmouseout="this.style.opacity='1'"
+                onmouseover="if(!this.disabled) this.style.opacity='0.9'"
+                onmouseout="if(!this.disabled) this.style.opacity='1'"
               >
                 <span>Se hur vi kan hjälpa</span>
                 <svg width="27" height="22" viewBox="0 0 27 22" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink: 0 !important; display: block !important;">
