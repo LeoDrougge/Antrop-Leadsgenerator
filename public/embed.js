@@ -159,6 +159,7 @@
                   text-underline-offset: 0.2em !important;
                   text-decoration-skip-ink: none !important;
                   outline: none !important;
+                  min-width: 200px !important;
                   cursor: url('${baseUrl}/Assets/pen-cursor-small.png') 8 40, text !important;
                   caret-color: #08F9F9 !important;
                   display: inline-block !important;
