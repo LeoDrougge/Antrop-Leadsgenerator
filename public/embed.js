@@ -446,13 +446,6 @@
 
     // Initial button state
     updateButtonState();
-
-    // Update height on window resize (for responsive text wrapping)
-    let resizeTimeout;
-    window.addEventListener('resize', function() {
-      clearTimeout(resizeTimeout);
-      resizeTimeout = setTimeout(updateWidgetHeight, 100);
-    });
   }
 })();
 
