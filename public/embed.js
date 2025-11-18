@@ -297,7 +297,7 @@
         }
 
         .antrop-widget-text {
-          font-size: 39px !important;
+          font-size: 34px !important;
         }
 
         @media (max-width: 639px) {
