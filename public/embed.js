@@ -119,7 +119,7 @@
             <div class="antrop-widget-text" style="
               font-family: 'Martian Mono', monospace !important;
               font-weight: 400 !important;
-              line-height: 1.5 !important;
+              line-height: normal !important;
               color: #AFDDD9 !important;
               display: flex !important;
               flex-wrap: wrap !important;
