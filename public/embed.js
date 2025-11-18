@@ -288,10 +288,6 @@
           color: #6B8E8A !important;
         }
 
-        .antrop-widget-input:focus::before {
-          display: none !important;
-        }
-
         .antrop-widget-content {
           flex-direction: column-reverse !important;
         }
