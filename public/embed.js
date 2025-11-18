@@ -325,7 +325,6 @@
 
     // Override container height to allow content-based sizing
     container.style.setProperty('height', 'auto', 'important');
-    container.style.setProperty('min-height', '640px', 'important');
     container.style.setProperty('max-height', 'none', 'important');
     container.style.setProperty('overflow', 'visible', 'important');
 
@@ -333,10 +332,7 @@
     const widget = container.querySelector('.antrop-widget');
     if (widget) {
       widget.style.setProperty('height', 'auto', 'important');
-      // Set min-height based on viewport width
-      const minHeight = window.innerWidth <= 1050 ? '760px' : '640px';
-      widget.style.setProperty('min-height', minHeight, 'important');
-      container.style.setProperty('min-height', minHeight, 'important');
+      // Let CSS handle min-height via media queries
       widget.style.setProperty('max-height', 'none', 'important');
       widget.style.setProperty('overflow', 'visible', 'important');
     }
